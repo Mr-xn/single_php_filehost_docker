@@ -1,5 +1,19 @@
 example usage
 ```bash
+docker run -d -p 8080:80 \
+    -e SERVER_NAME=example.com \
+    -e MAX_FILESIZE=512 \
+    -e MIN_FILEAGE=1 \
+    -e MAX_FILEAGE=2 \
+    -e UPLOAD_TIMEOUT=600 \
+    -e ADMIN_EMAIL=noreply@example.com \
+    -v $(PWD)/files:/files \
+    ghcr.io/mr-xn/single_php_filehost_docker:latest
+```
+
+---
+
+```bash
 docker build . -t single_php_filehost
 docker run -d -p 8080:80 \
     -e SERVER_NAME=example.com \
